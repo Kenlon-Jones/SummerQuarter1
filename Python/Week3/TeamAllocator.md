@@ -5,12 +5,15 @@ A library is a collection of files and modules you can put into your Python code
 We used Random.
 
 3. List at least 3 built-in Python libraries?
-Collections
-Random
-Math
+- random
+- webbrowser
+- turtle
+- datetime
 
 4. What is a module in your own words?
-A module is a file with a bunch of functions to do certain tasks.
+A module is a Python file.
 
 5. State why libraries and modules are helpful in your own words.
-Libraries and modules are helpful because they can make Python coding much easier because you have a bunch of them at your disposal.
+It helps us solve our coding problems.
+Having premade tools makes faster and less complicated.
+Modules let your code be more cleaner.
