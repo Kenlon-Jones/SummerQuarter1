@@ -7,7 +7,7 @@
 
 body{
     background:#000099 ;
-    color: #33ccff;
+    color: #ffffff;
 }
 
 #header{
@@ -72,5 +72,5 @@ nav ul li a:hover::after {
 }
 
 .header-text h1 span{
-    color: #ff004f;
+    color: #ff0000;
 }
