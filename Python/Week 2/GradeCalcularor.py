@@ -5,10 +5,9 @@
 # F | Number grade is less than 60
 
 print("Enter your grade number: ")
+grade = input()
+print(grade)
 
-grade = 100
-
-grade = ()
 if grade >= 90:
     print("A")
 elif grade >= 80 < 90:
@@ -19,3 +18,4 @@ elif grade >= 60 < 70:
     print("D")
 elif grade < 60:
     print("F")
+

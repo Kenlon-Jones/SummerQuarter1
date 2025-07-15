@@ -6,8 +6,8 @@
 }
 
 body{
-    background:#000099 ;
-    color: #ffffff;
+    background:#000000 ;
+    color: #ffdd00;
 }
 
 #header{
@@ -73,4 +73,22 @@ nav ul li a:hover::after {
 
 .header-text h1 span{
     color: #ff0000;
+}
+/*-- ABOUT SECTION START --*/
+#about{
+    padding: 80px 0;
+    color: #ababab;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-col-1{
+    flex-basis: 35%;
+}
+.about-col-1{
+    width: 100%;
+    border-radius: 15px;
 }
