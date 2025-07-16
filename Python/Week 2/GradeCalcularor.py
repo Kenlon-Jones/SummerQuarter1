@@ -4,8 +4,7 @@
 # D | Number grade is equal to or greater than 60 and less than 70
 # F | Number grade is less than 60
 
-print("Enter your grade number: ")
-grade = input()
+grade = int(input("Enter your grade number: "))
 print(grade)
 
 if grade >= 90:
