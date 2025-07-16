@@ -15,7 +15,7 @@ def AddBudget(name, amount):
     if name in budgets: # if the key is already in our budgets dictionary
         raise ValueError("Budget for item already exists")
     if amount > funds:
-        raise ValueError("No cn do, you are too broke")
+        raise ValueError("No can do, you are too broke")
     budgets[name] = amount # Adds the budgeted item to the budgets dictionary
     funds = funds - amount # Subtracts the amount from the funds
     expenses[name] = 0 # Add the budgeted item to the expenses dictionary
@@ -30,12 +30,22 @@ def Spend(name, amount):
     return budgeted - spent
 
 def PrintBudget():
+    print("Budget           Budgeted         Spent     Remaining")
+    print("------------------------------------------------")
+    totalBudgeted = 0
+    totalSpent = 0
+    totalRemaining = 0
     for name in budgets:
         budgeted = budgets[name] # store the amount associated with that key
         spent = expenses[name] # store the amount spent on that given tiem
         remainingBudget = budgeted - spent # Calculate the remaining budget for the given 
         print(f'{name:15s}, {budgeted:10.2f}, {spent:10.2f} ' 
-              f'{remainingBudget}')
+              f'{remainingBudget:10.2f}')
+        totalBudgeted += budgeted
+        totalSpent += spent
+        totalRemaining = remainingBudget
+    print(f'{"Total":15s}, {totalBudgeted:10.2f}, {totalSpent:10.2f} ' 
+              f'{totalBudgeted - totalSpent:10.2f}')
 
 
 
