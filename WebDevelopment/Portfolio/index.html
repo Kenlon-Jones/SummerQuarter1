@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet", href="style.css">
+    <script src="https://kit.fontawesome.com/18229ab754.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- HEADER SECTION START -->
@@ -42,10 +43,10 @@
                     <p class="tab-links" onclick="opentab('experience')">Experience</p>
                     <p class="tab-links" onclick="opentab('education')">Education</p>
                 </div>
-                <div class="tab-contents active-tab" id="experience">
+                <div class="tab-contents active-tab" id="skills">
                     <ul>
-                        <li><span>Hidden Genius Project</span><br>Learning about trchnology creation, entrepreneurship, and leadership skills to transform my life and community</li>
-                        <li><span>High School Student</span><br>Entering 9th grade at Summit Tamalpais high school</li>
+                        <li><span>HTML</span><br>Programming to make web pages</li>
+                        <li><span>Python</span><br>Programming to make programs to fufuil their purpose</li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="education">
@@ -57,25 +58,54 @@
                 </div>
                 <div class="tab-contents" id="experience">
                     <ul>
-                        <li><span></span><br>No information provided</li>
+                        <li><span>2024</span><br>Took an HTML coding class for an elective in 8th grade</br></li>
+                        <li><span>2023</span><br>Took a Python HTML coding class for an elective in 7th grade</br></li>
+                        <li><span>2021</span><br>Took an online Python beginner class</br></li>
                 </div> 
             </div>
         </div>
     </div>
 </div>
+<!-- SERVICES -->
+ <div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+        <div>
+            <i class="fa-solid fa-code"></i>
+            <h2>Web Design</h2>
+                <p>I can teach you simple web design mechanics using HTML and CSS</p>
+                <a href="#">Learn more</a>
+        </div>
+        <div>
+            <i class="fa-brands fa-python"></i>
+            <h2>Python</h2>
+                <p>I can teach you how to make very simple python programs</p>
+                <a href="#">Learn more</a>
+        </div>
+        <div>
+            <i class="fa-solid fa-gamepad"></i>
+            <h2>Gaming skills</h2>
+                <p>I can teach you how to be good at games such as College Football 26, not like you'd actually beat me</p>
+                <a href="#">Learn more</a>
+        </div>
+    </div>
+ </div>
+ <!-- PORTFOLIO -->
 
 <script>
 
-    var tablinks = document.getElementByClassName("tab-links");
-    var tabcontents = document.getElementByClassName("tab-contents");
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
 
     function opentab(tabname){
         for(tablink of tablinks){
             tablink.classList.remove("active-link");
         }
-        for(tablink of tabcontents){
-            tabcontent.tabcontents.remove("active-tab");
+        for(tabcontent of tabcontents){
+    tabcontent.classList.remove("active-tab");
         }
+
         event.currentTarget.classList.add("active-link");
 
         document.getElementById(tabname).classList.add("active-tab");
