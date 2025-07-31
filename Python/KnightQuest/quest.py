@@ -1,5 +1,6 @@
 ########## 1.3 ##########
 import pgzrun # imports the pgzrun module
+import random
 
 # Define width and height of the game grid & size  of each grid tile
 GRID_WIDTH = 16 # defines How many squares wide the game board is
@@ -11,6 +12,7 @@ WIDTH = GRID_WIDTH * GRID_SIZE
 HEIGHT = GRID_HEIGHT * GRID_SIZE
 GUARDMOVEINTERVAL = .3
 PLAYER_MOVE_INTERVAL = 0.1
+BACKGROUND_SEED = 12345
 #########################
 
 ########## 1.5 ##########
@@ -39,9 +41,21 @@ def GetScreenCoords(x, y):
 
 # This function converts a grid position to screen coordinates
 def DrawBackground():
+    random.seed(BACKGROUND_SEED)
     for y in range (GRID_HEIGHT): # loop over each grid row
-        for x in range (GRID_WIDTH): # loop over each grid column
-            screen.blit("floor1", GetScreenCoords(x, y)) # Draws the named imaged at the given screen position
+        for x in range (GRID_WIDTH): # loop over each grid colum
+            if x % 2 == y % 2:
+                # Draw the floor 1 pannel
+                screen.blit("floor1", GetScreenCoords(x, y)) # Draws the named imaged at the given screen position
+            else:
+                screen.blit("floor2", GetScreenCoords(x, y))
+            # Pick a random number between 0 & 99
+            n = random.randint(0, 99)
+            if n < 5:
+                # Draw a crack on the floor
+                screen.blit("crack1", GetScreenCoords(x, y))
+            elif n < 10:
+                screen.blit("crack2", GetScreenCoords(x, y))
 #########################
 
 ########## 2.1 ##########
@@ -167,7 +181,7 @@ def MovePlayer(dx, dy):
     for key in keysToCollect:
         (keyX, keyY) = GetActorGridPos(key) # Get grid posititon of the current key
         # Check if the new player pos matches the pos of one of the keys
-        if x == keyX and y ==keyY:
+        if x == keyX and y == keyY:
             # Remove the key from the keys list
             keysToCollect.remove(key)
             break
