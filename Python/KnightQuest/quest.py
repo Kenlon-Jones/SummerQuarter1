@@ -10,7 +10,7 @@ GRID_SIZE = 50 # Each tile is 50 by 50 pixels
 # Define the size of the game window
 WIDTH = GRID_WIDTH * GRID_SIZE
 HEIGHT = GRID_HEIGHT * GRID_SIZE
-GUARDMOVEINTERVAL = .3
+GUARDMOVEINTERVAL = 0.3
 PLAYER_MOVE_INTERVAL = 0.1
 BACKGROUND_SEED = 12345
 #########################
@@ -26,10 +26,10 @@ MAP = ["WWWWWWWWWWWWWWWW",
        "W  W W W WGW W W",
        "W              W",
        "W  W W W W W WGW",
+       "W       K      W",
+       "W  W W W W W W W",
        "W              W",
-       "W  W W WKW W W W",
-       "W              W",
-       "W  WGW W W W W W",
+       "W  WKW W W W W W",
        "W              D",
        "WWWWWWWWWWWWWWWW"]
 #########################
@@ -126,7 +126,7 @@ def DrawGameOver():
     
     if playerWon:
         # Draw a you win message on screen
-        screen.drae.text("YOU WIN!", midtop = screenMiddle,
+        screen.draw.text("YOU WIN!", midtop = screenMiddle,
                          fontsize = GRID_SIZE, color = "green", owidth=1)
     # else measninf the player lost the game
     else:
@@ -185,8 +185,8 @@ def MovePlayer(dx, dy):
             # Remove the key from the keys list
             keysToCollect.remove(key)
             break
-        animate(player, pos = GetScreenCoords(x, y),
-                duration=PLAYER_MOVE_INTERVAL)
+    animate(player, pos = GetScreenCoords(x, y),
+            duration=PLAYER_MOVE_INTERVAL)
 #########################
 
 
@@ -219,7 +219,7 @@ def MoveGuard(guard):
         guardY += 1
 
     # Check if the player is to the below of the guard & there is no wall
-    elif playerY < guardY and MAP[guardY + 1][guardX] != "W":
+    elif playerY < guardY and MAP[guardY - 1][guardX] != "W":
         # Move the guard down
         guardY -= 1
 
