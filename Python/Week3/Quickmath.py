@@ -1,5 +1,6 @@
-x = 4
+num1 = 10000
+num2 = 3056
 
-y = 9
+num3 = num1 - num2
 
-print(x + y)
+print(num3)
